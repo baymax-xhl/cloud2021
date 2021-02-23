@@ -1,6 +1,9 @@
 server:
   port: 7002
+
 eureka:
+  server:
+    enable-self-preservation: false
   instance:
     hostname: ek2.com
   client:

@@ -1,7 +1,3 @@
-/Users/baymax/java/cloud2020/cloud-provider-payment-8001/src/main/java/com/baymax/springcloud/PaymentApplication8001.java
-/Users/baymax/java/cloud2020/cloud-provider-payment-8001/src/main/java/com/baymax/springcloud/controller/PaymentController.java
-/Users/baymax/java/cloud2020/cloud-provider-payment-8001/src/main/java/com/baymax/springcloud/entities/Payment.java
-/Users/baymax/java/cloud2020/cloud-provider-payment-8001/src/main/java/com/baymax/springcloud/service/impl/PaymentServiceImpl.java
-/Users/baymax/java/cloud2020/cloud-provider-payment-8001/src/main/java/com/baymax/springcloud/service/PaymentService.java
-/Users/baymax/java/cloud2020/cloud-provider-payment-8001/src/main/java/com/baymax/springcloud/dao/PaymentDao.java
-/Users/baymax/java/cloud2020/cloud-provider-payment-8001/src/main/java/com/baymax/springcloud/entities/CommonResult.java
+/Users/baymax/java/cloud2021/cloud-consumer-order80/src/main/java/com/baymax/springcloud/controller/OrderController.java
+/Users/baymax/java/cloud2021/cloud-consumer-order80/src/main/java/com/baymax/springcloud/config/ApplicationContextConfig.java
+/Users/baymax/java/cloud2021/cloud-consumer-order80/src/main/java/com/baymax/springcloud/OrderMain80.java

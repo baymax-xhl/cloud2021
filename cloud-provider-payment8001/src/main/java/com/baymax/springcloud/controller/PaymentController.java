@@ -6,7 +6,12 @@ import com.baymax.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @description: some desc
@@ -21,6 +26,8 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
+    @Resource
+    private DiscoveryClient discoveryClient;
     @Value("${server.port}")
     private String serverPort;
     @PostMapping("/payment/create")
@@ -43,5 +50,25 @@ public class PaymentController {
             return new CommonResult<Payment>(200,"Query Database Success,serverPort:"+serverPort,payment);
         }
         return new CommonResult<Payment>(444,"could not query corresponding record,it failing ,query ID:"+id+".",null);
+    }
+
+    @GetMapping("/payment/discovery")
+    public Object discovery()
+    {
+        List<String> services = discoveryClient.getServices();
+
+        for (String srv : services) {
+            log.info("****srv:"+srv);
+        }
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        for (ServiceInstance instance:
+             instances) {
+            log.info(instance.getInstanceId()
+                    + "\t" + instance.getHost()
+                    + "\t" + instance.getPort()
+                    + "\t" + instance.getUri()
+            );
+        }
+        return discoveryClient;
     }
 }
